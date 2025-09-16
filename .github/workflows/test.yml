@@ -1,27 +1,25 @@
 name: Run Tests
-
 on: [pull_request]
-
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
+      
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 'lts/*'
           cache: 'pnpm'
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: latest
-
+          
       - name: Install dependencies
         run: pnpm install
-
+        
       - name: Run tests
         run: pnpm run test
 
