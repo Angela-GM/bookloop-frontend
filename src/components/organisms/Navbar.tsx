@@ -13,7 +13,7 @@ export const Navbar = () => {
     const handleToggleHamburger = () => setIsOpen(!isOpen);
 
   return (
-    <header className='bg-[#F9F7F5] flex justify-center'>
+    <header className='bg-[#F9F7F5] flex justify-center fixed w-full'>
         <div className='flex flex-1 max-w-7xl flex items-center justify-between py-2 px-4'>
 
         <Link href='/'>
