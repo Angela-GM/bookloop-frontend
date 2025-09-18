@@ -1,6 +1,7 @@
 import { FormField } from '@/src/types/form'
 import React from 'react'
 import { Input } from '../atoms/Input'
+import { Label } from '../atoms/Label'
 
 export const RegisterForm = () => {
 
@@ -38,12 +39,15 @@ export const RegisterForm = () => {
   return (
     <form className='w-full flex flex-col gap-4'>
         {inputsFields.map((field) => (
-            <Input
-              key={field.name}
-              type={field.type}
-              placeholder={field.placeholder || ''}
-              required={field.required}
-            />
+            <div key={field.name} className='flex flex-col gap-1'>
+                        <Label key={field.name} htmlFor={field.name || ''}>{field.label}</Label>
+                        <Input
+                          key={field.name}
+                          type={field.type}
+                          placeholder={field.placeholder || ''}
+                          required={field.required}
+                          />
+                          </div>
           ))}
           
           <button
