@@ -39,10 +39,10 @@ export const RegisterForm = () => {
   return (
     <form className='w-full flex flex-col gap-4'>
         {inputsFields.map((field) => (
-            <div key={field.name} className='flex flex-col gap-1'>
-                        <Label key={field.name} htmlFor={field.name || ''}>{field.label}</Label>
+            <div key={field.name} className='flex flex-col gap-2'>
+                        <Label  htmlFor={field.name || ''}>{field.label}</Label>
                         <Input
-                          key={field.name}
+                          
                           type={field.type}
                           placeholder={field.placeholder || ''}
                           required={field.required}
@@ -52,7 +52,7 @@ export const RegisterForm = () => {
           
           <button
             type='submit'
-            className='bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition-colors shadow-md'
+            className='bg-primary hover:bg-primary/80 text-white font-semibold py-2 rounded-lg transition-colors shadow-md'
           >
             Iniciar sesión
           </button>

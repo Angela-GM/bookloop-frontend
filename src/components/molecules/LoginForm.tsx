@@ -27,9 +27,9 @@ export const LoginForm = () => {
     <form className='w-full flex flex-col gap-3'>
           {inputsFields.map((field) => (
             <div key={field.name} className='flex flex-col gap-1'>
-            <Label key={field.name} htmlFor={field.name || ''} >{field.label}</Label>
+            <Label htmlFor={field.name || ''} >{field.label}</Label>
             <Input
-              key={field.name}
+              
               type={field.type}
               placeholder={field.placeholder || ''}
               required={field.required}
