@@ -1,8 +1,6 @@
 import { FormField } from "@/src/types/form";
-import React from "react";
-import { Input } from "../atoms/input";
-import { Label } from "../atoms/label";
-
+import { InputLabel } from "./input-label";
+import { ButtonSubmit } from "../atoms/button-submit";
 
 export const FormLogin = () => {
   const inputsFields: FormField[] = [
@@ -24,22 +22,16 @@ export const FormLogin = () => {
 
   return (
     <form className="w-full flex flex-col gap-3">
-      {inputsFields.map((field) => (
-        <div key={field.name} className="flex flex-col gap-1">
-          <Label htmlFor={field.name || ""}>{field.label}</Label>
-          <Input
-            type={field.type}
-            placeholder={field.placeholder || ""}
-            required={field.required}
-          />
-        </div>
+      {inputsFields.map((field, index) => (
+        <InputLabel
+          key={index}
+          name={field.name || ""}
+          label={field.label || ""}
+          type={field.type}
+          placeholder={field.placeholder}
+        />
       ))}
-      <button
-        type="submit"
-        className="mt-2 bg-primary hover:bg-primary/80 text-white font-semibold p-2 rounded-lg transition-colors shadow-md cursor-pointer"
-      >
-        Iniciar sesión
-      </button>
+      <ButtonSubmit>Iniciar sesión</ButtonSubmit>
     </form>
   );
 };

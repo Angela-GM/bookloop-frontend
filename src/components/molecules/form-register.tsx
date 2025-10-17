@@ -1,9 +1,6 @@
 import { FormField } from "@/src/types/form";
-import React from "react";
-import { Label } from "../atoms/label";
-import { Input } from "../atoms/input";
 import { InputLabel } from "./input-label";
-import { PiPlaceholder } from "react-icons/pi";
+import { ButtonSubmit } from "../atoms/button-submit";
 
 export const FormRegister = () => {
   const inputsFields: FormField[] = [
@@ -49,12 +46,7 @@ export const FormRegister = () => {
         />
       ))}
 
-      <button
-        type="submit"
-        className="bg-primary hover:bg-primary/80 text-white font-semibold py-2 rounded-lg transition-colors shadow-md cursor-pointer"
-      >
-        Crear cuenta
-      </button>
+      <ButtonSubmit>Crear cuenta</ButtonSubmit>
     </form>
   );
 };
