@@ -31,6 +31,7 @@ export const InputLabel = ({
         required={required}
         value={value}
         onChange={onChange}
+        name={name}
       />
     </div>
   );
