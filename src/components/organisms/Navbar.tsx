@@ -4,7 +4,6 @@ import Link from 'next/link'
 import React from 'react'
 import { SearchBar } from '../molecules/SearchBar'
 import { UserAuth } from '../molecules/UserAuth'
-import { RxCross2, RxHamburgerMenu } from 'react-icons/rx'
 import { ButtonMenu } from '../molecules/ButtonMenu'
 
 export const Navbar = () => {
@@ -13,8 +12,8 @@ export const Navbar = () => {
     const handleToggleHamburger = () => setIsOpen(!isOpen);
 
   return (
-    <header className='bg-[#F9F7F5] flex justify-center'>
-        <div className='flex flex-1 max-w-7xl flex items-center justify-between py-2 px-4'>
+    <header className='bg-[#F9F7F5] flex justify-center sticky top-0 z-50 w-full'>
+        <div className='flex flex-1 max-w-7xl items-center justify-between py-2 px-4'>
 
         <Link href='/'>
             <Image src={'/next.svg'} alt='logo' width={100} height={100}/>
