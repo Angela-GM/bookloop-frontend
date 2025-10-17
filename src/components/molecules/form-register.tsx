@@ -2,12 +2,14 @@ import { FormField } from "@/src/types/form";
 import React from "react";
 import { Label } from "../atoms/label";
 import { Input } from "../atoms/input";
+import { InputLabel } from "./input-label";
+import { PiPlaceholder } from "react-icons/pi";
 
 export const FormRegister = () => {
   const inputsFields: FormField[] = [
     {
-      name: "completeName",
-      label: "Complete Name",
+      name: "name",
+      label: "Nombre completo",
       type: "text",
       placeholder: "Name Lastname",
       required: true,
@@ -37,15 +39,14 @@ export const FormRegister = () => {
 
   return (
     <form className="w-full flex flex-col gap-4">
-      {inputsFields.map((field) => (
-        <div key={field.name} className="flex flex-col gap-2">
-          <Label htmlFor={field.name || ""}>{field.label}</Label>
-          <Input
-            type={field.type}
-            placeholder={field.placeholder || ""}
-            required={field.required}
-          />
-        </div>
+      {inputsFields.map((field, index) => (
+        <InputLabel
+          key={index}
+          name={field.name || ""}
+          label={field.label || ""}
+          type={field.type}
+          placeholder={field.placeholder}
+        />
       ))}
 
       <button
