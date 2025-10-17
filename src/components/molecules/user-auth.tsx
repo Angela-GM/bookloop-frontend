@@ -1,7 +1,7 @@
 import React from 'react'
-import { BadgeCoin } from '../atoms/BadgeCoin'
-import { AddBook } from '../atoms/AddBook'
-import { UserButton } from '../atoms/UserButton'
+import { BadgeCoin } from '../atoms/badge.coin'
+import { AddBook } from '../atoms/add-book'
+import { UserButton } from '../atoms/user-button'
 
 export const UserAuth = () => {
   return (
