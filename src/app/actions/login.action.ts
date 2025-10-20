@@ -44,13 +44,11 @@ export async function loginUserAction(
       return { error: { general: error.message || "Error al iniciar sesión" } };
     }
 
-    // Login successful
     const loginData = await response.json();
-    console.log("loginData", loginData);
     
-    return { 
+    return {
       success: true,
-      token: loginData.token 
+      token: loginData.token,
     };
   } catch (err: unknown) {
     console.log("error", err);

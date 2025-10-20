@@ -12,7 +12,7 @@ export default function AuthPage() {
     <AuthForms>
       <div>
         <div className="max-w-md mx-auto overflow-hidden">
-          <div className="flex bg-muted  p-1 rounded-lg">
+          <div className="flex bg-muted p-1 rounded-lg">
             <button
               onClick={() => setActiveTab("login")}
               className={`flex-1 py-1 px-2 text-sm font-medium rounded-md transition-all duration-200 cursor-pointer ${

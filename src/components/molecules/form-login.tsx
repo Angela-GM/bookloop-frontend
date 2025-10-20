@@ -73,29 +73,28 @@ export const FormLogin = () => {
 
   // Ejecutar whoami después del login exitoso
   useEffect(() => {
-    console.log('Login state changed:', state);
+    console.log("Login state changed:", state);
     if (state?.success && state?.token) {
-      console.log('Login exitoso, ejecutando whoami con token:', state.token);
-      
+      console.log("Login exitoso, ejecutando whoami con token:", state.token);
+
       // Guardar token en localStorage
-      localStorage.setItem('token', state.token);
-      console.log('Token guardado en localStorage', state.token);
-      
+      localStorage.setItem("token", state.token);
+
       // Obtener datos del usuario
       fetch(`${API_URL}/auth/whoami`, {
-        method: 'GET',
+        method: "GET",
         headers: {
           Authorization: `Bearer ${state.token}`,
         },
       })
-      .then(res => {
-        console.log('Whoami status:', res.status);
-        return res.json();
-      })
-      .then(user => {
-        console.log('User data:', user);
-      })
-      .catch(err => console.error('Error whoami:', err));
+        .then((res) => {
+          console.log("Whoami status:", res.status);
+          return res.json();
+        })
+        .then((user) => {
+          console.log("User data:", user);
+        })
+        .catch((err) => console.error("Error whoami:", err));
     }
   }, [state]);
 

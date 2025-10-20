@@ -1,10 +1,10 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { SearchBar } from "../molecules/search-bar";
 import { UserAuth } from "../molecules/user-auth";
 import { ButtonMenu } from "../molecules/button-menu";
+import { ImageCompo } from "../atoms/image-compo";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -14,8 +14,11 @@ export const Navbar = () => {
   return (
     <header className="bg-[#F9F7F5] flex justify-center sticky top-0 z-50 w-full">
       <div className="flex flex-1 max-w-7xl items-center justify-between py-2 px-4">
-        <Link href="/">
-          <Image src={"/next.svg"} alt="logo" width={100} height={100} />
+        <Link href={"/"}>
+          <h1 className="text-2xl font-bold text-primary flex gap-2">
+            <ImageCompo routeImage={"/book-logo.svg"} width={32} height={32} />
+            BookLoop
+          </h1>
         </Link>
         <SearchBar />
         <UserAuth />

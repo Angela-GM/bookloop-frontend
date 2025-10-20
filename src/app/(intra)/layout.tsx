@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
+import { Navbar } from "@/src/components/organisms/nabvar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,19 +12,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <main className="min-h-screen max-w-7xl mx-auto p-4">
+          <Navbar />
+          {children}
+        </main>
       </body>
     </html>
   );
