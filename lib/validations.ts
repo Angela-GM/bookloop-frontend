@@ -33,3 +33,8 @@ export const registerSchema = z
     path: ["confirmPassword"], // Especifica dónde mostrar el error
   });
 export type UserFormData = z.infer<typeof registerSchema>;
+
+export const loginSchema = z.object({
+  email: z.string().email("El correo electrónico debe ser válido"),
+  password: z.string().min(6, "La contraseña debe tener al menos 6 caracteres"),
+});

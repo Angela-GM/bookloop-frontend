@@ -14,3 +14,17 @@ export type RegisterActionState = {
     terms?: boolean;
   };
 };
+
+export type LoginActionState = {
+  success?: boolean;
+  token?: string;
+  error?: {
+    email?: string[];
+    password?: string[];
+    general?: string;
+  };
+  data?: {
+    email?: string;
+    password?: string;
+  };
+};

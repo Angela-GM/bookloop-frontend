@@ -1,18 +1,18 @@
 "use client";
 
-import { FormField } from "@/src/types/form";
 import { InputLabel } from "./input-label";
 import { ButtonSubmit } from "../atoms/button-submit";
 import { registerUserAction } from "@/src/app/actions/register.action";
 import { RegisterActionState } from "@/src/types/actions";
 import { useState, useEffect } from "react";
 import { useActionState } from "react";
+import { inputsFields } from "@/src/constants/register-fields";
 
 export const FormRegister = () => {
-  const [state, action, isPending] = useActionState<RegisterActionState | null, FormData>(
-    registerUserAction,
-    null
-  );
+  const [state, action, isPending] = useActionState<
+    RegisterActionState | null,
+    FormData
+  >(registerUserAction, null);
 
   // Initialize controlled form state with empty strings (never undefined)
   const [formData, setFormData] = useState({
@@ -26,7 +26,7 @@ export const FormRegister = () => {
   // Update form data when server returns validation errors
   useEffect(() => {
     if (state?.data) {
-      setFormData(prev => ({
+      setFormData((prev) => ({
         ...prev,
         name: state.data?.name || "",
         email: state.data?.email || "",
@@ -36,39 +36,8 @@ export const FormRegister = () => {
   }, [state]);
 
   const handleInputChange = (name: string, value: string | boolean) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
-  const inputsFields: FormField[] = [
-    {
-      name: "name",
-      label: "Nombre completo",
-      type: "text",
-      placeholder: "Name Lastname",
-      required: true,
-    },
-    {
-      name: "email",
-      label: "Email",
-      type: "email",
-      placeholder: "Correo electrónico",
-      required: true,
-    },
-    {
-      name: "password",
-      label: "Password",
-      type: "password",
-      placeholder: "************",
-      required: true,
-    },
-    {
-      name: "confirmPassword",
-      label: "Confirmar Password",
-      type: "password",
-      placeholder: "************",
-      required: true,
-    },
-  ];
 
   // Helper function to render field errors
   const renderFieldErrors = (
@@ -100,11 +69,14 @@ export const FormRegister = () => {
               type={field.type}
               placeholder={field.placeholder}
               value={fieldName ? String(formData[fieldName]) : ""}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => 
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 fieldName && handleInputChange(fieldName, e.target.value)
               }
             />
-            {field.name && renderFieldErrors(field.name as keyof NonNullable<RegisterActionState['error']>)}
+            {field.name &&
+              renderFieldErrors(
+                field.name as keyof NonNullable<RegisterActionState["error"]>
+              )}
           </div>
         );
       })}
@@ -116,8 +88,8 @@ export const FormRegister = () => {
           id="terms"
           name="terms"
           checked={formData.terms}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => 
-            handleInputChange('terms', e.target.checked)
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            handleInputChange("terms", e.target.checked)
           }
           className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
         />
