@@ -18,11 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <main className="min-h-screen max-w-7xl mx-auto p-4">
+        <main className="min-h-screen mx-auto p-4">
           <Navbar />
           {children}
         </main>
