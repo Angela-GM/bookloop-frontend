@@ -167,3 +167,7 @@ body {
 .bg-coin {
   background-color: hsl(var(--coin));
 }
+
+.hero-background {
+  background-image: url('/hero-books.jpg');
+}
