@@ -1,10 +1,12 @@
-'use client';
+"use client";
 
 interface CardSectionProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
-export const CardSection = ({children}:CardSectionProps) => {
+export const CardSection = ({ children }: CardSectionProps) => {
   return (
-    <section className="p-6 rounded-lg border-border bg-card text-card-foreground shadow-sm">{children}</section>
-  )
-}
+    <section className="rounded-lg text-card-foreground shadow-sm p-6 bg-background/90 backdrop-blur border-0 shadow-card">
+      {children}
+    </section>
+  );
+};

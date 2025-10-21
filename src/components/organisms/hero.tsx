@@ -3,6 +3,7 @@ import { SectionContainer } from "../atoms/section-container";
 import { Button } from "../atoms/button";
 import Link from "next/link";
 import { IoMdArrowForward } from "react-icons/io";
+import { CardSection } from "../atoms/card-section";
 
 export const Hero = () => {
   return (
@@ -41,11 +42,11 @@ export const Hero = () => {
             </section>
 
             {/* Feature cards */}
-            {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="p-6 bg-background/90 backdrop-blur border-0 shadow-card">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <CardSection>
             <div className="flex items-center space-x-3 mb-3">
             <div className="p-2 bg-book-spine/10 rounded-lg">
-            <BookOpen className="h-6 w-6 text-book-spine" />
+            {/* <BookOpen className="h-6 w-6 text-book-spine" /> */}
             </div>
             <h3 className="font-semibold text-foreground">
             Catálogo infinito
@@ -54,12 +55,12 @@ export const Hero = () => {
             <p className="text-muted-foreground">
             Miles de libros esperándote, desde clásicos hasta novedades.
             </p>
-            </Card>
+            </CardSection>
             
-            <Card className="p-6 bg-background/90 backdrop-blur border-0 shadow-card">
+            <CardSection>
             <div className="flex items-center space-x-3 mb-3">
             <div className="p-2 bg-coin/10 rounded-lg">
-            <Recycle className="h-6 w-6 text-coin" />
+            {/* <Recycle className="h-6 w-6 text-coin" /> */}
                 </div>
                 <h3 className="font-semibold text-foreground">
                 Economía circular
@@ -68,12 +69,12 @@ export const Hero = () => {
                 <p className="text-muted-foreground">
                 Gana Bookis por cada libro que compartas con la comunidad.
                 </p>
-                </Card>
+                </CardSection>
                 
-                <Card className="p-6 bg-background/90 backdrop-blur border-0 shadow-card">
+                <CardSection>
                 <div className="flex items-center space-x-3 mb-3">
                 <div className="p-2 bg-primary/10 rounded-lg">
-                <Users className="h-6 w-6 text-primary" />
+                {/* <Users className="h-6 w-6 text-primary" /> */}
                 </div>
                 <h3 className="font-semibold text-foreground">
                 Comunidad lectora
@@ -82,8 +83,8 @@ export const Hero = () => {
                 <p className="text-muted-foreground">
                 Conecta con otros amantes de los libros como tú.
                 </p>
-                </Card>
-                </div> */}
+                </CardSection>
+                </div>
           </div>
         </div>
       </SectionContainer>
