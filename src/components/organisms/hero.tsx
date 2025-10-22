@@ -1,9 +1,11 @@
 import React from "react";
 import { SectionContainer } from "../atoms/section-container";
-import { Button } from "../atoms/button";
 import Link from "next/link";
 import { IoMdArrowForward } from "react-icons/io";
 import { CardSection } from "../atoms/card-section";
+import { ImBooks } from "react-icons/im";
+import { RiRecycleLine } from "react-icons/ri";
+import { LuUsers } from "react-icons/lu";
 
 export const Hero = () => {
   return (
@@ -43,48 +45,48 @@ export const Hero = () => {
 
             {/* Feature cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <CardSection>
-            <div className="flex items-center space-x-3 mb-3">
-            <div className="p-2 bg-book-spine/10 rounded-lg">
-            {/* <BookOpen className="h-6 w-6 text-book-spine" /> */}
-            </div>
-            <h3 className="font-semibold text-foreground">
-            Catálogo infinito
-            </h3>
-            </div>
-            <p className="text-muted-foreground">
-            Miles de libros esperándote, desde clásicos hasta novedades.
-            </p>
-            </CardSection>
-            
-            <CardSection>
-            <div className="flex items-center space-x-3 mb-3">
-            <div className="p-2 bg-coin/10 rounded-lg">
-            {/* <Recycle className="h-6 w-6 text-coin" /> */}
-                </div>
-                <h3 className="font-semibold text-foreground">
-                Economía circular
-                </h3>
-                </div>
-                <p className="text-muted-foreground">
-                Gana Bookis por cada libro que compartas con la comunidad.
-                </p>
-                </CardSection>
-                
-                <CardSection>
+              <CardSection>
                 <div className="flex items-center space-x-3 mb-3">
-                <div className="p-2 bg-primary/10 rounded-lg">
-                {/* <Users className="h-6 w-6 text-primary" /> */}
-                </div>
-                <h3 className="font-semibold text-foreground">
-                Comunidad lectora
-                </h3>
+                  <div className="p-2 bg-book-spine/10 rounded-lg">
+                    <ImBooks className="text-book-spine text-2xl" />
+                  </div>
+                  <h3 className="font-semibold text-foreground">
+                    Catálogo infinito
+                  </h3>
                 </div>
                 <p className="text-muted-foreground">
-                Conecta con otros amantes de los libros como tú.
+                  Miles de libros esperándote, desde clásicos hasta novedades.
                 </p>
-                </CardSection>
+              </CardSection>
+
+              <CardSection>
+                <div className="flex items-center space-x-3 mb-3">
+                  <div className="p-2 bg-coin/10 rounded-lg">
+                    <RiRecycleLine className="text-2xl text-coin" />
+                  </div>
+                  <h3 className="font-semibold text-foreground">
+                    Economía circular
+                  </h3>
                 </div>
+                <p className="text-muted-foreground">
+                  Gana Bookis por cada libro que compartas con la comunidad.
+                </p>
+              </CardSection>
+
+              <CardSection>
+                <div className="flex items-center space-x-3 mb-3">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <LuUsers className="text-2xl text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground">
+                    Comunidad lectora
+                  </h3>
+                </div>
+                <p className="text-muted-foreground">
+                  Conecta con otros amantes de los libros como tú.
+                </p>
+              </CardSection>
+            </div>
           </div>
         </div>
       </SectionContainer>
