@@ -11,7 +11,7 @@ interface CardBookProps {
 export const CardBook = ({ book }: CardBookProps) => {
   return (
     <div key={book.id} className="flex flex-col">
-      <div className="aspect-[2/3] relative overflow-hidden rounded-lg bg-muted">
+      <div className="aspect-[3/4] bg-gradient-to-br from-book-page to-muted rounded-t-lg flex items-center justify-center overflow-hidden">
         {book.imageUrl && (
           <ImageCompo
             routeImage={book.imageUrl}
