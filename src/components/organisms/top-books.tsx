@@ -6,9 +6,8 @@ import { SectionContainer } from "../atoms/section-container";
 import { IoMdArrowForward } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { getAllBooks } from "@/src/services/books.service";
-import { ImageCompo } from "../atoms/image-compo";
 import { Book } from "@/src/types/books";
-import { BookCardCopy } from "../molecules/card-book-copy";
+import { CardBook } from "../molecules/card-book";
 
 export const TopBooks = () => {
   const [books, setBooks] = useState([]);
@@ -57,17 +56,18 @@ export const TopBooks = () => {
               Cargando libros...
             </p>
           ) : books.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {books.map((book: Book) => (
-                <BookCardCopy
+                <CardBook
                   key={book.id}
                   id={book.id}
                   title={book.title}
                   author={book.author}
                   genre={book.description}
-                  condition={book.condition}
+                  condition={book.condition as "NEW" | "GOOD" | "FAIR" | "POOR"}
                   price={book.price}
-                  image={book.imageUrl}
+                  image={book.imageUrl || ""}
+                  location={book.location}
                 />
               ))}
             </div>
