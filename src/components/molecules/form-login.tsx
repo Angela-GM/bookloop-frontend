@@ -8,8 +8,10 @@ import { LoginActionState } from "@/src/types/actions";
 import { useState, useEffect } from "react";
 import { useActionState } from "react";
 import { API_URL } from "@/src/constants/env";
+import { useRouter } from "next/navigation";
 
 export const FormLogin = () => {
+  const router = useRouter();
   const [state, action, isPending] = useActionState<
     LoginActionState | null,
     FormData
@@ -71,7 +73,7 @@ export const FormLogin = () => {
     },
   ];
 
-  // Ejecutar whoami después del login exitoso
+  // Ejecutar whoami después del login exitoso y redirigir al dashboard
   useEffect(() => {
     console.log("Login state changed:", state);
     if (state?.success && state?.token) {
@@ -93,10 +95,12 @@ export const FormLogin = () => {
         })
         .then((user) => {
           console.log("User data:", user);
+          // Redirigir al dashboard después de obtener los datos del usuario
+          router.push("/dashboard");
         })
         .catch((err) => console.error("Error whoami:", err));
     }
-  }, [state]);
+  }, [state, router]);
 
   return (
     <form className="w-full flex flex-col gap-4" action={action}>

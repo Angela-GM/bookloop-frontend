@@ -3,6 +3,7 @@
 import { loginSchema } from "@/lib/validations";
 import { API_URL } from "@/src/constants/env";
 import { LoginActionState } from "@/src/types/actions";
+import { cookies } from "next/headers";
 
 export async function loginUserAction(
   prevState: LoginActionState | null,
@@ -46,10 +47,22 @@ export async function loginUserAction(
 
     const loginData = await response.json();
     
+    // Guardar token en cookies (httpOnly para mayor seguridad)
+    (await cookies()).set("token_bookloop", loginData.token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      maxAge: 60 * 60 * 24 * 7, // 7 días
+    });
+    
     return {
       success: true,
       token: loginData.token,
     };
+
+
+
+
   } catch (err: unknown) {
     console.log("error", err);
     const errorMessage =

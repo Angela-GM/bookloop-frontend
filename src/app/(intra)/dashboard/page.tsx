@@ -1,5 +1,6 @@
 import { Metrics } from "@/src/components/organisms/metrics";
 import { SectionContainer } from "../../../components/atoms/section-container";
+
 export default function DashboardPage() {
   return (
     <section>
