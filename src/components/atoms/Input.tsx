@@ -27,7 +27,7 @@ export const Input = ({
     <input
       type={type}
       placeholder={placeholder}
-      className={`px-4 py-2 bg-input/30 outline-1 border border-border rounded-md outline-none focus:ring-2 ring-inset`}
+      className={`px-4 py-2 bg-input/30 outline-1 border border-border rounded-md outline-none focus:ring-2 ring-inset placeholder:text-muted-foreground text-sm`}
       required={required}
       name={name}
       {...(isControlled 

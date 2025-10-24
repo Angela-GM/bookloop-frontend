@@ -1,10 +1,9 @@
 import Link from "next/link";
 import { SectionContainer } from "../../../components/atoms/section-container";
 import { IoMdArrowBack } from "react-icons/io";
-import { CardSection } from "@/src/components/atoms/card-section";
 import { CardIntra } from "@/src/components/atoms/card-intra";
-import { CiCamera } from "react-icons/ci";
 import { IoCameraOutline } from "react-icons/io5";
+import { FormUploadBook } from "@/src/components/molecules/form-upload-book";
 
 export default function UploadPage() {
   return (
@@ -23,14 +22,29 @@ export default function UploadPage() {
         <p className="text-lg text-muted-foreground max-w-2xl">
           Comparte tu libro con la comunidad y gana Bookis
         </p>
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <section className="col-span-1 md:col-span-2">
+        <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-4">
+          <section className="col-span-1 lg:col-span-2">
             <CardIntra>
-              <form action="">form</form>
+              <FormUploadBook />
             </CardIntra>
           </section>
 
           <section className="col-span-1 flex flex-col gap-8">
+            {/* Precio sugerido */}
+            <CardIntra>
+              <section className="flex flex-col space-y-1.5 ">
+                <h3 className="text-2xl font-semibold leading-none tracking-tight">
+                  Precio sugerido
+                </h3>
+              </section>
+              <section className="pt-0 text-center">
+                <p className="text-3xl font-bold text-primary">12-18</p>
+                <p className="text-sm text-muted-foreground">Bookis promedio</p>
+                <p className="text-xs text-muted-foreground mt-2">
+                  Basado en libros similares
+                </p>
+              </section>
+            </CardIntra>
             {/* Consejos */}
             <CardIntra>
               <section className="flex flex-col space-y-1.5 p-6">
@@ -67,21 +81,6 @@ export default function UploadPage() {
                     </p>
                   </div>
                 </div>
-              </section>
-            </CardIntra>
-            {/* Precio sugerido */}
-            <CardIntra>
-              <section className="flex flex-col space-y-1.5 ">
-                <h3 className="text-2xl font-semibold leading-none tracking-tight">
-                  Precio sugerido
-                </h3>
-              </section>
-              <section className="pt-0 text-center">
-                <p className="text-3xl font-bold text-primary">12-18</p>
-                <p className="text-sm text-muted-foreground">Bookis promedio</p>
-                <p className="text-xs text-muted-foreground mt-2">
-                  Basado en libros similares
-                </p>
               </section>
             </CardIntra>
           </section>
