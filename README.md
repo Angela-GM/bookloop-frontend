@@ -70,5 +70,5 @@ Aunque actualmente el desarrollo está liderado por Angela, es posible que se su
 --- 
 ## 📜 Licencia Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más detalles. 
 --- 
-## 👩🏻‍💻 Autora Desarrollado con 💜 por **Angela** 
+## 👩🏻‍💻 Autora Desarrollado **Angela** 
 🔗 [GitHub](https://github.com/Angela-GM) 💼 [LinkedIn](https://www.linkedin.com/in/angela-garcia-mu) 🌐 [Portfolio](#)
