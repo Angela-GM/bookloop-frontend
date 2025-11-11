@@ -2,11 +2,11 @@ import React from 'react'
 
 interface LabelProps {
     children: React.ReactNode,
-    htmlFor: string
+    name?: string
 }
 
-export const Label = ({children, htmlFor}: LabelProps) => {
+export const Label = ({children, name}: LabelProps) => {
   return (
-    <label htmlFor={htmlFor} className='text-left font-semibold text-sm'  >{children}</label>
+    <label htmlFor={name} className='text-left font-semibold text-sm'  >{children}</label>
   )
 }

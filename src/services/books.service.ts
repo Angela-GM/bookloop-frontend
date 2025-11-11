@@ -1,4 +1,5 @@
 import { API_URL } from "../constants/env";
+import axios from "axios";
 
 export const getAllBooks = async (page: number = 1, limit: number = 10) => {
   try {
@@ -19,6 +20,21 @@ export const getAllBooks = async (page: number = 1, limit: number = 10) => {
     return data;
   } catch (error) {
     console.error("Error in getAllBooks:", error);
+    throw error;
+  }
+};
+
+export const uploadBook = async (formData: FormData, token: string) => {
+  try {
+    const response = await axios.post(`${API_URL}/books/create`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error in uploadBook:", error);
     throw error;
   }
 };

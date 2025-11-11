@@ -28,3 +28,23 @@ export type LoginActionState = {
     password?: string;
   };
 };
+export type UploadBookActionState = {
+  success?: boolean;
+  error?: {
+    title?: string;
+    author?: string;
+    isbn?: string;
+    description?: string;
+    condition?: string;
+    price?: number;
+    general?: string;
+  };
+  data?: {
+    title?: string;
+    author?: string;
+    isbn?: string;
+    description?: string;
+    condition?: string;
+    price?: number;
+  };
+};

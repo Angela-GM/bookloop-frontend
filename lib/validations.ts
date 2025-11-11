@@ -38,3 +38,12 @@ export const loginSchema = z.object({
   email: z.string().email("El correo electrónico debe ser válido"),
   password: z.string().min(6, "La contraseña debe tener al menos 6 caracteres"),
 });
+
+export const upUploadBookSchema = z.object({
+  isbn: z.string().min(10, "El ISBN debe tener al menos 10 caracteres").max(13, "El ISBN debe tener como máximo 13 caracteres"),
+  title: z.string().min(1, "El título es obligatorio").max(200, "El título debe tener como máximo 200 caracteres"),
+  author: z.string().min(1, "El autor es obligatorio").max(200, "El autor debe tener como máximo 200 caracteres"),
+  description: z.string().min(1, "La descripción es obligatoria").max(1000, "La descripción debe tener como máximo 1000 caracteres"),
+  condition: z.string().min(1, "La condición es obligatoria"),
+  price: z.number().min(0, "El precio debe ser mayor o igual a 0"),
+});
