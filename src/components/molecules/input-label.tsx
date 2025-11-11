@@ -9,7 +9,7 @@ interface LabelInputProps {
   type?: string;
   placeholder?: string;
   required?: boolean;
-  value?: string | number | readonly string[] | undefined;
+  value?: string | number ;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -29,7 +29,7 @@ export const InputLabel = ({
         type={type}
         placeholder={placeholder}
         required={required}
-        value={value}
+        value={value == null ? undefined : String(value)}
         onChange={onChange}
         name={name}
       />

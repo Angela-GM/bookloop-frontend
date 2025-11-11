@@ -38,6 +38,8 @@ export type UploadBookActionState = {
     condition?: string;
     price?: number;
     general?: string;
+    image?: string[] | "";
+    location?: string;
   };
   data?: {
     title?: string;
@@ -46,5 +48,8 @@ export type UploadBookActionState = {
     description?: string;
     condition?: string;
     price?: number;
+    image?: File | null;
+    location?: string;
+    ownerId?: string;
   };
 };

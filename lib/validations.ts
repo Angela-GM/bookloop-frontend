@@ -46,4 +46,5 @@ export const upUploadBookSchema = z.object({
   description: z.string().min(1, "La descripción es obligatoria").max(1000, "La descripción debe tener como máximo 1000 caracteres"),
   condition: z.string().min(1, "La condición es obligatoria"),
   price: z.number().min(0, "El precio debe ser mayor o igual a 0"),
+  location: z.string().min(1, "La ubicación es obligatoria").max(200, "La ubicación debe tener como máximo 200 caracteres"),
 });

@@ -9,6 +9,7 @@ interface Props {
   width: number;
   height: number;
   classAlternative?: string;
+  unoptimized?: boolean;
 }
 
 export const ImageCompo = ({
@@ -17,16 +18,21 @@ export const ImageCompo = ({
   width,
   height,
   classAlternative,
+  unoptimized,
 }: Props) => {
+  // ✅ Si es URL blob, no usar loader
+  const isBlob = routeImage.startsWith("blob:");
+
   return (
     <Image
-      loader={imageLoader}
+      loader={isBlob ? undefined : imageLoader}
       className={`${classAlternative}`}
       src={`${routeImage}`}
       alt={altText || ""}
       width={width}
       height={height}
       priority
+      unoptimized={unoptimized || isBlob}
     />
   );
 };

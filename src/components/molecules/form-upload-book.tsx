@@ -10,7 +10,7 @@ import { FiCamera } from "react-icons/fi";
 import { Label } from "../atoms/label";
 import { Input } from "../atoms/input";
 import { LuUpload } from "react-icons/lu";
-import { useActionState } from "react";
+import { useActionState, useEffect, useState } from "react";
 import { UploadBookActionState } from "@/src/types/actions";
 import { uploadBookAction } from "@/src/app/actions/upload-book.action";
 import { ButtonSubmit } from "../atoms/button-submit";
@@ -18,25 +18,23 @@ import { ButtonSubmit } from "../atoms/button-submit";
 
 export const FormUploadBook = () => {
  const [state, action, isPending] = useActionState<UploadBookActionState | null, FormData>(uploadBookAction, null);
+const [ previewImage, setPreviewImage ] = useState<string | null>(null);
 
-//  const [formData, setFormData] = useState({
-//     isbn: "",
-//     title: "",
-//     author: "",
-//     description: "",
-//     condition: "",
-//     price: 0,
-//     image: null,
-//   });
+  // Manejar vista previa de la imagen seleccionada
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    console.log(file);
+    if (file) {
+      const blobUrl = URL.createObjectURL(file);
+      console.log(blobUrl);
+      setPreviewImage(blobUrl);
+      
+    } else {
+      console.log("No se ha seleccionado ninguna imagen.");
+      setPreviewImage(null);
+    }
+  };
 
-  // const handleInputChange = (
-  //   event: React.ChangeEvent<
-  //     HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-  //   >
-  // ) => {
-  //   const { name, value } = event.target;
-  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  // };
 
   const renderFieldErrors = (
     fieldName: keyof NonNullable<UploadBookActionState["error"]>
@@ -73,6 +71,8 @@ export const FormUploadBook = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <InputLabel name={"isbn"} label={"ISBN"} placeholder="Ej: 978-3-16-148410-0"  />
           {renderFieldErrors("isbn")}
+          <InputLabel name={"location"} label={"Ubicación"} placeholder="Ej: Ciudad, País"  />
+          {renderFieldErrors("location")}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <InputLabel name={"title"} label={"Título"} placeholder="Ej: Cien años de soledad"  />
@@ -94,15 +94,28 @@ export const FormUploadBook = () => {
           <Label >Imagen del libro</Label>
         <div className="flex flex-col gap-2 border-dashed border-2 border-secondary rounded-md p-4 justify-center items-center text-center text-sm text-muted-foreground">
           <FiCamera size={40} />
-          <p >Sube hasta 5 imagenes</p>
+          <p >Sube la portada del libro</p>
 
-         <Input  type="file" name="book-image" multiple accept="image/*" className="hidden" />
-         <Label name="book-image" >
-         <button className="cursor-pointer hover:bg-primary/10 rounded-md " onClick={() => {document.getElementById('book-image')?.click()}  }>
+         <input type="file" name="image" id="image"  accept="image/*" className="hidden" onChange={handleImageChange} />
+         <Label name="image" >
+         <button className="cursor-pointer hover:bg-primary/10 rounded-md " onClick={(e) => {e.preventDefault(); document.getElementById('image')?.click()}  }>
           <span className="text-primary flex items-center gap-2 p-2 border border-primary rounded-md hover:"><LuUpload /> Seleccionar imagenes</span>
          </button>
          </Label>
         </div>
+        {previewImage && (
+          <div className="mt-4">
+            <p className="mb-2 font-medium">Vista previa de la imagen seleccionada:</p>
+            <ImageCompo
+              routeImage={previewImage}
+              width={150}
+              height={150}
+              classAlternative="mx-auto"
+              altText="vista previa"
+              unoptimized={true}
+            />
+          </div>
+        )}
         </div>
         <ButtonSubmit disabled={isPending}>{isPending ? "Subiendo..." : "Subir libro"}</ButtonSubmit>
         {state?.error?.general && (
