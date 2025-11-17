@@ -4,7 +4,7 @@ import { SectionContainer } from "../../../components/atoms/section-container";
 export default function DashboardPage() {
   return (
     <section>
-      <SectionContainer classProps="pt-8">
+      <SectionContainer classProps="pt-8 mx-0">
         <h2 className="text-3xl font-bold text-foreground mb-2">
           !Hola, Angela! 👋
         </h2>
