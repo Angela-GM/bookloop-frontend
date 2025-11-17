@@ -38,7 +38,7 @@ export const Metrics = () => {
           <CardSection key={index} classProps="flex items-center gap-2 sm:gap-4 p-4 mx-0">
             <div className="text-xl">{metric.icon}</div>
             <div>
-              <p className="text-lg font-semibold">{metric.value}</p>
+              <p className="text-xl font-bold">{metric.value}</p>
               <p className="text-sm text-muted-foreground">{metric.title}</p>
             </div>
           </CardSection>
