@@ -1,13 +1,9 @@
 import { Metrics } from "@/src/components/organisms/metrics";
 import { SectionContainer } from "../../../components/atoms/section-container";
 import { CardSection } from "@/src/components/atoms/card-section";
-import { H2Title } from "@/src/components/atoms/h2-title";
-import { FaPlus } from "react-icons/fa6";
 import { GoArrowUpRight, GoPlus } from "react-icons/go";
-import { ButtonSubmit } from "@/src/components/atoms/button-submit";
 import { BiBookOpen } from "react-icons/bi";
 import { LinkButton } from "@/src/components/atoms/link-button";
-import { Card } from "@/src/components/atoms/card";
 import { StartAdventure } from "@/src/components/organisms/start-adventure";
 
 export default function DashboardPage() {
