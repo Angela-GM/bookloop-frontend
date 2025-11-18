@@ -51,6 +51,7 @@
   --color-coin-foreground: hsl(var(--coin-foreground));
   --color-arrow: hsl(var(--arrow));
   --color-people: hsl(var(--people));
+  --color-button-secondary: hsl(var(--button-secondary));
   
   /* Mapeo de fuentes */
   --font-sans: var(--font-geist-sans);
@@ -97,6 +98,7 @@
   --radius: 0.5rem;
   --arrow: 142 70% 40%;           /* #4ade80 - Verde brillante */
   --people: 59 130% 246%;           /* #4ade80 - azul */
+  --button-secondary: 25 20% 50%; /* #7a6f63 - Marrón grisáceo */
 }
 
 /*

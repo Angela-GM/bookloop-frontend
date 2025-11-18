@@ -7,6 +7,7 @@ import { GoArrowUpRight, GoPlus } from "react-icons/go";
 import { ButtonSubmit } from "@/src/components/atoms/button-submit";
 import { BiBookOpen } from "react-icons/bi";
 import { LinkButton } from "@/src/components/atoms/link-button";
+import { Card } from "@/src/components/atoms/card";
 
 export default function DashboardPage() {
   return (
@@ -26,17 +27,31 @@ export default function DashboardPage() {
         <CardSection classProps="p-4 flex flex-col justify-between  cursor-pointer ">
           <h3 className="text-2xl font-semibold flex items-center gap-2"><GoPlus  className="size-6"/>Subir Libro</h3>
           <p className="text-sm text-primary/80 mb-4">Comparte tu libro con la comunidad</p>
-          <ButtonSubmit classProps="flex items-center justify-center gap-2">Comenzar <GoArrowUpRight /></ButtonSubmit>
+          <LinkButton styleButton="primary" href="/upload" classProps="flex items-center justify-center gap-2">Comenzar <GoArrowUpRight /></LinkButton>
 
         </CardSection>
         <CardSection classProps="p-4 flex flex-col justify-between  cursor-pointer ">
           <h3 className="text-2xl font-semibold flex items-center gap-2"><BiBookOpen size={24} />Explorar catálogo</h3>
           <p className="text-sm text-primary/80 mb-4">Descubre libros increibles</p>
-          <LinkButton href="/catalog">Explorar <GoArrowUpRight /></LinkButton>
+          <LinkButton styleButton="secondary" href="/catalog">Explorar <GoArrowUpRight /></LinkButton>
 
         </CardSection>
-        
+      
         </div>
+        <CardSection classProps="mt-8 p-6">
+            <h3 className="text-2xl font-semibold">Actividad reciente</h3>
+            <p className="text-sm text-muted-foreground mt-2">Tu historial de intercambios y actividad</p>
+            <div className="mt-10 flex flex-col gap-4 items-center">
+              <BiBookOpen size={60} className="text-book-spine" />
+              <h4 className="text-lg font-medium text-primary">¡Comienza tu aventura!</h4>
+              <p className="text-sm text-muted-foreground">Sube tu primer libro o explora el catálogo para comenzar a intercambiar.</p>
+              <div className="grid grid-cols-2 mb-4">
+                <LinkButton styleButton="primary" href="/upload" classProps="mr-4">Subir Libro</LinkButton>
+                <LinkButton styleButton="secondary" href="/catalog">Explorar</LinkButton>
+              </div>
+            </div>
+        </CardSection>
+        
       </SectionContainer>
     </section>
   );

@@ -5,16 +5,17 @@ interface LinkButtonProps {
   href: string;
   children: React.ReactNode;
   classProps?: string;
+  styleButton?: 'primary' | 'secondary';
 }
 
 const stylesButton: Record<string, string> = {
-    default: 'text-primary hover:text-primary/80 font-medium transition-colors',
-    secondary: 'text-secondary hover:text-secondary/80 font-medium transition-colors',
+    primary: 'bg-primary text-primary-foreground hover:bg-primary/80  transition-colors',
+    secondary: 'hover:bg-button-secondary/30 text-primary border border-border bg-primary-foreground  transition-colors',
 
 }
 
-export const LinkButton = ({ href, children, classProps }: LinkButtonProps) => {
+export const LinkButton = ({ href, children, classProps, styleButton = 'primary' }: LinkButtonProps) => {
   return (
-    <Link href={href} className={`px-4 sm:px-6 md:px-8 py-2  rounded-xl gap-4 text-sm sm:text-md flex items-center  justify-center  ${stylesButton[classProps || 'default']} glass `}>{children}</Link>
+    <Link href={href} className={`px-4 sm:px-6 md:px-8 py-2  rounded-lg gap-4 text-sm sm:text-md flex items-center  justify-center font-medium cursor-pointer ${stylesButton[styleButton]} ${classProps || ''} `}>{children}</Link>
   )
 }
