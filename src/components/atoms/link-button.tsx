@@ -16,6 +16,6 @@ const stylesButton: Record<string, string> = {
 
 export const LinkButton = ({ href, children, classProps, styleButton = 'primary' }: LinkButtonProps) => {
   return (
-    <Link href={href} className={`px-4 sm:px-6 md:px-8 py-2  rounded-lg gap-4 text-sm sm:text-md flex items-center  justify-center font-medium cursor-pointer ${stylesButton[styleButton]} ${classProps || ''} `}>{children}</Link>
+    <Link href={href} className={`px-4  py-2  rounded-lg gap-4 text-sm sm:text-md flex items-center  justify-center font-medium cursor-pointer ${stylesButton[styleButton]} ${classProps || ''} `}>{children}</Link>
   )
 }
