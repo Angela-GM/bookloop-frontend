@@ -28,7 +28,7 @@ export const uploadBook = async (formData: FormData, token: string) => {
   try {
     const response = await axios.post(`${API_URL}/books/create`, formData, {
       headers: {
-        "Content-Type": "multipart/form-data",
+        // "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,
       },
     });

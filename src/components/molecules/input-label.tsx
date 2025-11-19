@@ -11,6 +11,7 @@ interface LabelInputProps {
   required?: boolean;
   value?: string | number ;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  renderFieldErrors?: React.ReactNode;
 }
 
 export const InputLabel = ({
@@ -21,6 +22,7 @@ export const InputLabel = ({
   required = false,
   value,
   onChange,
+  renderFieldErrors,
 }: LabelInputProps) => {
   return (
     <div className="flex flex-col gap-2">
@@ -33,6 +35,7 @@ export const InputLabel = ({
         onChange={onChange}
         name={name}
       />
+      {renderFieldErrors}
     </div>
   );
 };
