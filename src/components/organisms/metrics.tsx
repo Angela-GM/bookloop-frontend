@@ -32,10 +32,10 @@ const metricsData = [
 
 export const Metrics = () => {
   return (
-    <SectionContainer classProps="mt-8 ">
-      <section className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <SectionContainer classProps="mt-8 px-0!">
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
         {metricsData.map((metric, index) => (
-          <CardSection key={index} classProps="flex items-center gap-2 sm:gap-4 p-4 mx-0">
+          <CardSection key={index} classProps="flex items-center gap-2 sm:gap-4  mx-0">
             <div className="text-xl">{metric.icon}</div>
             <div>
               <p className="text-xl font-bold">{metric.value}</p>
@@ -43,7 +43,7 @@ export const Metrics = () => {
             </div>
           </CardSection>
         ))}
-      </section>
+      </div>
     </SectionContainer>
   );
 };

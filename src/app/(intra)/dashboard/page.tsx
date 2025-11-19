@@ -8,8 +8,7 @@ import { StartAdventure } from "@/src/components/organisms/start-adventure";
 
 export default function DashboardPage() {
   return (
-    <section>
-      <SectionContainer classProps='pt-8 mx-0'>
+      <SectionContainer classProps='pt-8 mx-0 px-0!'>
         <h2 className='text-3xl font-bold text-foreground mb-2'>!Hola, Angela! 👋</h2>
         <h4 className='text-muted-foreground'>
           Bienvenido a tu espacio literario. Descubre, intercambia y disfruta.
@@ -54,6 +53,6 @@ export default function DashboardPage() {
           <StartAdventure />
         </CardSection>
       </SectionContainer>
-    </section>
+    
   );
 }

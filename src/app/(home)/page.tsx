@@ -4,10 +4,10 @@ import { TopBooks } from "@/src/components/organisms/top-books";
 
 export default function Home() {
   return (
-    <main>
+    <div className="space-y-8 ">
       <Hero />
       <TopBooks />
       <CommunityMetrics />
-    </main>
+    </div>
   );
 }
