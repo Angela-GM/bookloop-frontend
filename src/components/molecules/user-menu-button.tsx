@@ -1,3 +1,4 @@
+'use client';
 import Link from "next/link";
 import React from "react";
 import { FiUser } from "react-icons/fi";
@@ -5,20 +6,35 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { logoutAction } from "@/src/app/actions/logout.action";
 
+interface UserMenuButtonProps {
+  isToken: boolean;
+}
+
 const menuItems = [
   { label: 'Dashboard', href: '/dashboard' },
   { label: 'Settings', href: '#' },
 ];
 
-export const UserButton = () => {
-  return (
-    <>
-    {/* <div
-      className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3"
+
+export const UserMenuButton = ({ isToken }: UserMenuButtonProps) => {
+  console.log("UserMenuButton render. isToken:", isToken);
+
+  if (!isToken) {
+    return (
+      <Link
+        href="/auth" 
+        className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3"
       >
-      <FiUser size={18} />
-    </div> */}
-    <Menu as="div" className="relative inline-block">
+        <FiUser size={18} />
+        <span>Login</span>
+      </Link>
+    );
+  }
+ 
+ 
+
+  return (
+     <Menu as="div" className="relative inline-block">
       <MenuButton className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3">
         
       
@@ -45,6 +61,7 @@ export const UserButton = () => {
           
           <form action={logoutAction}method="POST">
             <MenuItem>
+
               <button
                 type="submit"
                 className="block px-4 py-2 w-full text-left text-sm text-foreground data-focus:bg-secondary data-focus:text-secondary-foreground data-focus:outline-hidden border-t border-border"
@@ -56,6 +73,5 @@ export const UserButton = () => {
         </div>
       </MenuItems>
     </Menu>
-      </>
   );
 };

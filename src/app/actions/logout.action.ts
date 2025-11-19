@@ -8,8 +8,4 @@ export async function logoutAction() {
     cookieStore.delete("token_bookloop");
     cookieStore.delete("userId_bookloop");
     redirect("/");
-    return {
-        
-        success: true,
-    }
 }
