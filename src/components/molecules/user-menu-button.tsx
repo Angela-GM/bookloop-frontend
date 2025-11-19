@@ -17,7 +17,7 @@ const menuItems = [
 
 
 export const UserMenuButton = ({ isToken }: UserMenuButtonProps) => {
-  console.log("UserMenuButton render. isToken:", isToken);
+
 
   if (!isToken) {
     return (
