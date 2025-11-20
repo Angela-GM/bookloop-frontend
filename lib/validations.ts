@@ -47,4 +47,6 @@ export const upUploadBookSchema = z.object({
   condition: z.string().min(1, "La condición es obligatoria"),
   price: z.number().min(0, "El precio debe ser mayor o igual a 0"),
   location: z.string().min(1, "La ubicación es obligatoria").max(200, "La ubicación debe tener como máximo 200 caracteres"),
+  image: z.instanceof(File).optional(),  // ← AGREGAR (opcional)
+  ownerId: z.string().optional(),  // ← AGREGAR (opcional, se obtiene en servidor)
 });

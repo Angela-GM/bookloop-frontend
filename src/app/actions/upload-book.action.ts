@@ -18,7 +18,7 @@ export async function uploadBookAction(
     price: Number(formData.get("price")),
     image: formData.get("image") as File | null,
     location: formData.get("location") as string,
-    ownerId: formData.get("ownerId") as string,
+    
   };
   // 🔑 Paso 1: Obtener token de cookies
   const cookieStore = await cookies();

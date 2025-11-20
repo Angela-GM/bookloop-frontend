@@ -112,7 +112,7 @@ export const FormUploadBook = () => {
       <p className='text-sm text-muted-foreground mt-2'>Proporciona los detalles de tu libro</p>
 
       <form
-        action={action}
+        action={handleFormSubmit}
         className='flex flex-col gap-4 mt-4'
       >
         {googleBooksImageUrl && (
