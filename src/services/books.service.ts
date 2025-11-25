@@ -28,13 +28,18 @@ export const uploadBook = async (formData: FormData, token: string) => {
   try {
     const response = await axios.post(`${API_URL}/books/create`, formData, {
       headers: {
-        // "Content-Type": "multipart/form-data",
         Authorization: `Bearer ${token}`,
       },
     });
+    
     return response.data;
   } catch (error) {
-    console.error("Error in uploadBook:", error);
+    console.error("❌ Error en uploadBook:", error);
+    if (axios.isAxiosError(error)) {
+      console.error('Status:', error.response?.status);
+      console.error('Data:', error.response?.data);
+      console.error('Message:', error.message);
+    }
     throw error;
   }
 };

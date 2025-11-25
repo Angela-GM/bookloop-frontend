@@ -9,7 +9,7 @@ import { FiCamera } from "react-icons/fi";
 import { Label } from "../atoms/label";
 import { Input } from "../atoms/input";
 import { LuUpload } from "react-icons/lu";
-import { useActionState, useState } from "react";
+import { use, useActionState, useEffect, useState } from "react";
 import { UploadBookActionState } from "@/src/types/actions";
 import { uploadBookAction } from "@/src/app/actions/upload-book.action";
 import { ButtonSubmit } from "../atoms/button-submit";
@@ -27,6 +27,16 @@ export const FormUploadBook = () => {
   const [title, setTitle] = useState<string>("");
   const [description, setDescription] = useState<string>("");
 
+  useEffect(() => {
+    if (state?.success) {
+      setIsbn("");
+      setAuthor("");
+      setTitle("");
+      setDescription("");
+      setPreviewImage(null);
+      setGoogleBooksImageUrl(null);
+    }
+  }, [state]);
   const handleSearchISBN = async () => {
     if (!isbn) {
       console.log("Por favor, ingresa un ISBN.");
@@ -89,14 +99,22 @@ export const FormUploadBook = () => {
   };
 
   // ✅ Crear wrapper para enviar URL a Google Books si es necesario
-  const handleFormSubmit = async (formData: FormData) => {
-    // Si se usó la imagen de Google Books, agregar la URL al FormData
+  const handleFormSubmit = (formData: FormData) => {
+    // Obtener la imagen del input file
+    const imageFile = formData.get("image") as File | null;
+
+    // Si el archivo está vacío, eliminarlo del FormData
+    if (imageFile && imageFile.size === 0) {
+      formData.delete("image");
+    }
+
+    // Si se usó la imagen de Google Books y no hay imagen real subida
     if (googleBooksImageUrl && !formData.get("image")) {
       formData.append("googleBooksImageUrl", googleBooksImageUrl);
     }
-    action(formData);
-  };
 
+    return action(formData); // ← IMPORTANTE: retornar la Promise
+  };
   return (
     <section>
       <section className='flex items-center gap-3'>
