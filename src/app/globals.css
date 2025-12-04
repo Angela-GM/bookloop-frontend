@@ -49,10 +49,14 @@
   --color-book-page: hsl(var(--book-page));
   --color-coin: hsl(var(--coin));
   --color-coin-foreground: hsl(var(--coin-foreground));
+  --color-arrow: hsl(var(--arrow));
+  --color-people: hsl(var(--people));
+  --color-button-secondary: hsl(var(--button-secondary));
   
   /* Mapeo de fuentes */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
 }
 
 /*
@@ -92,6 +96,9 @@
   --input: 214.3 31.8% 91.4%;        /* #e2e8f0 - Gris claro */
   --ring: 222.2 84% 4.9%;            /* #0f172a - Azul muy oscuro */
   --radius: 0.5rem;
+  --arrow: 142 70% 40%;           /* #4ade80 - Verde brillante */
+  --people: 59 130% 246%;           /* #4ade80 - azul */
+  --button-secondary: 25 20% 50%; /* #7a6f63 - Marrón grisáceo */
 }
 
 /*
@@ -115,12 +122,16 @@
   --muted: 217.2 32.6% 17.5%;           /* #334155 - Azul grisáceo */
   --muted-foreground: 215 20.2% 65.1%;  /* #94a3b8 - Gris azulado */
   --accent: 217.2 32.6% 17.5%;          /* #334155 - Azul grisáceo */
+  --accent-dark: 210 40% 20%;        /* #1e293b - Azul oscuro */
   --accent-foreground: 210 40% 98%;     /* #f8fafc - Blanco azulado */
   --destructive: 0 62.8% 30.6%;         /* #991b1b - Rojo oscuro */
   --destructive-foreground: 210 40% 98%;/* #f8fafc - Blanco azulado */
   --border: 217.2 32.6% 17.5%;          /* #334155 - Azul grisáceo */
   --input: 217.2 32.6% 17.5%;           /* #334155 - Azul grisáceo */
   --ring: 212.7 26.8% 83.9%;            /* #cbd5e1 - Gris claro azulado */
+  --coin: 45 85% 60%;               /* #f2c649 - Dorado brillante */
+  --arrow: 142 70% 40%;           /* #4ade80 - Verde brillante */
+  --book: 25 60% 70%;               /* #d6a95c - Marrón claro */
 }
 
 /*

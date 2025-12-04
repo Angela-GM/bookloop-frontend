@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 import { Navbar } from "@/src/components/organisms/nabvar";
 import { Footer } from "@/src/components/organisms/footer";
+import { UserMenu } from "@/src/components/molecules/user-menu";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "BookLoop - Intercambia libros usados fácilmente",
-  description: "Plataforma para intercambiar libros usados utilizando una moneda virtual. Lee más, gasta menos y cuida el planeta.",
+  description:
+    "Plataforma para intercambiar libros usados utilizando una moneda virtual. Lee más, gasta menos y cuida el planeta.",
 };
 
 export default function RootLayout({
@@ -25,14 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <main className="min-h-screen mx-auto">
-          <Navbar />
+    <html lang='en'>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <main className='min-h-screen mx-auto'>
+          <Navbar userMenu={<UserMenu />} />
           {children}
-          <Footer />  
+          <Footer />
         </main>
       </body>
     </html>

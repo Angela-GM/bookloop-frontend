@@ -2,10 +2,11 @@
 
 interface CardSectionProps {
   children: React.ReactNode;
+  classProps?: string;
 }
-export const CardSection = ({ children }: CardSectionProps) => {
+export const CardSection = ({ children, classProps }: CardSectionProps) => {
   return (
-    <section className="rounded-lg text-card-foreground shadow-sm p-6 bg-background/90 backdrop-blur border-0 shadow-card">
+    <section className={`rounded-lg text-card-foreground shadow-sm px-6 py-6 bg-card backdrop-blur border-1 shadow-card border-border ${classProps}`}>
       {children}
     </section>
   );

@@ -3,9 +3,12 @@
 interface ButtonSubmitProps {
   children: React.ReactNode;
   disabled?: boolean;
+  classProps?: string;
 }
 
-export const ButtonSubmit = ({ children, disabled = false }: ButtonSubmitProps) => {
+
+
+export const ButtonSubmit = ({ children, disabled = false, classProps = "" }: ButtonSubmitProps) => {
   return (
     <button
       type="submit"
@@ -14,7 +17,7 @@ export const ButtonSubmit = ({ children, disabled = false }: ButtonSubmitProps) 
         disabled 
           ? "bg-gray-400 cursor-not-allowed" 
           : "bg-primary hover:bg-primary/80 cursor-pointer"
-      } text-white`}
+      } text-white ${classProps}`}
     >
       {children}
     </button>

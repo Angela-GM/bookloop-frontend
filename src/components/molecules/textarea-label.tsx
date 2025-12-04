@@ -18,7 +18,7 @@ export const TextareaLabel = ({
 }: TextareaLabelProps) => {
   return (
     <div className="flex flex-col gap-2">
-      <Label htmlFor={""}> {label}</Label>
+      <Label name={name}> {label}</Label>
       <TextArea
         defaultValue={defaultValue}
         name={name}
