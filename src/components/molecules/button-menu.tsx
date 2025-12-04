@@ -1,6 +1,6 @@
 import React from 'react'
-import { Button } from '../atoms/Button'
 import { RxCross2, RxHamburgerMenu } from 'react-icons/rx';
+import { Button } from '../atoms/Button';
 
 interface ButtonMenuProps {
   isOpen: boolean;
